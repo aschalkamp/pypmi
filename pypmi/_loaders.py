@@ -11,7 +11,7 @@ from typing import List
 import numpy as np
 import pandas as pd
 
-from _info2023 import BEHAVIORAL_INFO, DEMOGRAPHIC_INFO, VISITS, GENOTYPES_INFO, PRODROMAL_INFO, PRODROMAL_BERG2015
+from _info2021 import BEHAVIORAL_INFO, DEMOGRAPHIC_INFO, VISITS, GENOTYPES_INFO, PRODROMAL_INFO, PRODROMAL_BERG2015
 from _utils import _get_data_dir
 
 
@@ -131,7 +131,7 @@ def load_SAA(path: str = None,
     data['test'] = data['test'].apply(lambda x: x.replace(' ', '_').lower())
 
     # (try to) add visit date information
-    data = _add_dates(data, path="/scratch/c.c21013066/data/ppmi/phenotypes2023",#os.path.dirname(path),
+    idy = _add_dates(tidy, path="/scratch/c.c21013066/data/ppmi/phenotypes2021",#os.path.dirname(path),
                       fnames=['Lumbar_Puncture.csv'])
     data['participant'] = data['participant'].astype(int)
 
